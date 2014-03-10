@@ -1,5 +1,7 @@
 package com.musclefive.servlet;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
@@ -16,6 +18,8 @@ import java.util.Set;
  * Created by shixin on 14-3-8.
  */
 public class MyFirstServlet extends HttpServlet {
+    private static Logger logger = Logger.getLogger(MyFirstServlet.class);
+
     private String initParam1;
     private String initParam2;
 
@@ -36,6 +40,8 @@ public class MyFirstServlet extends HttpServlet {
     }
 
     public void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        logger.info("Enter MyFirstServlet.");
+
         //如果不做特殊处理，下面输出中文的是乱码
         //s1
         if (request.getParameter("useLocal") != null) {
@@ -49,7 +55,7 @@ public class MyFirstServlet extends HttpServlet {
         }
 
         if (request.getParameter("sendError") != null) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND,"自定义");
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "自定义");
         }
         if (request.getParameter("sendRedirect") != null) {
             response.sendRedirect("/forward.servlet");

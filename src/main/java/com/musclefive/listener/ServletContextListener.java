@@ -4,7 +4,6 @@ import com.musclefive.servlet.Shixin;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
-import javax.servlet.SessionCookieConfig;
 
 /**
  * Created by shixin on 14-3-8.
@@ -30,8 +29,8 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
         servletContext.setAttribute("root", root);
 
         //set session configuration.
-        SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
-        sessionCookieConfig.setName("muscle-five-session-id");
+        //SessionCookieConfig sessionCookieConfig = servletContext.getSessionCookieConfig();
+        //sessionCookieConfig.setName("muscle-five-session-id");
     }
 
     @Override

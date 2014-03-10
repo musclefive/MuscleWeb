@@ -35,6 +35,7 @@
         <listener-class>com.musclefive.listener.ServletContextListener</listener-class>
     </listener>
 
+    <!--
     <filter>
         <filter-name>RequestEncodingFilter</filter-name>
         <filter-class>com.musclefive.filter.RequestEncodingFilter</filter-class>
@@ -60,6 +61,7 @@
         <filter-name>CompressFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    -->
 
     <servlet>
         <servlet-name>FirstServlet</servlet-name>
@@ -94,5 +96,4 @@
         <servlet-name>ForwardServlet</servlet-name>
         <url-pattern>/forward.servlet</url-pattern>
     </servlet-mapping>
-
 </web-app>

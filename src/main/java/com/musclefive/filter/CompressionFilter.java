@@ -40,6 +40,5 @@ public class CompressionFilter implements Filter {
 
     @Override
     public void destroy() {
-
     }
 }

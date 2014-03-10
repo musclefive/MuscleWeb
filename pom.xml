@@ -10,17 +10,46 @@
 
     <packaging>war</packaging>
 
+    <properties>
+        <log4j_path>/home/shixin/soft/apache-tomcat-7.0.52/logs</log4j_path>
+    </properties>
+    <profiles>
+        <profile>
+            <id>shixin_environment</id>
+            <activation>
+                <property>
+                    <name>S</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <log4j_path>/home/shixin/soft/apache-tomcat-7.0.52/logs</log4j_path>
+            </properties>
+        </profile>
+        <profile>
+            <id>cuichao_environment</id>
+            <activation>
+                <property>
+                    <name>C</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <log4j_path>/home/shixin/soft/apache-tomcat-7.0.52/logs</log4j_path>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <url>http://localhost:8080/manager/text</url>
-                    <server>tomcat</server>
-                </configuration>
-            </plugin>
+            <!-- JDK version and maven compile encoding type -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -31,6 +60,16 @@
                     <encoding>utf8</encoding>
                 </configuration>
 
+            </plugin>
+            <!-- tomcat7 plugin -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <url>http://localhost:8080/manager/text</url>
+                    <server>tomcat</server>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -52,6 +91,11 @@
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.2.1-b03</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
         </dependency>
     </dependencies>
 </project>
