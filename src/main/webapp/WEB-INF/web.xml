@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0"
@@ -20,15 +20,19 @@
     </context-param>
     <context-param>
         <param-name>mysql_db</param-name>
-        <param-value>muscle</param-value>
+        <param-value>collie</param-value>
     </context-param>
     <context-param>
         <param-name>mysql_user</param-name>
-        <param-value>musclefive</param-value>
+        <param-value>root</param-value>
     </context-param>
     <context-param>
         <param-name>mysql_password</param-name>
-        <param-value>bit2004</param-value>
+        <param-value>shixin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mysql_connection_num</param-name>
+        <param-value>50</param-value>
     </context-param>
 
     <listener>
