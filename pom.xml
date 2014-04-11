@@ -12,7 +12,9 @@
 
     <properties>
         <log4j_path>/home/shixin/soft/apache-tomcat-7.0.52/logs</log4j_path>
+        <jetty_version>9.0.2.v20130417</jetty_version>
     </properties>
+
     <profiles>
         <profile>
             <id>shixin_environment</id>
@@ -71,17 +73,24 @@
                     <server>tomcat</server>
                 </configuration>
             </plugin>
+            <!-- jetty plugin -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty_version}</version>
+                <configuration>
+                    <httpConnector>
+                        <port>8081</port>
+                    </httpConnector>
+                    <webApp>
+                        <contextPath>/muscle</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <!--
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet</artifactId>
-            <version>3.0.0.v201103241009</version>
-        </dependency>
-        -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -111,6 +120,11 @@
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty_version}</version>
         </dependency>
     </dependencies>
 </project>
